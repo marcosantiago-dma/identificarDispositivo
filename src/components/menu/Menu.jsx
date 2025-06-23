@@ -12,6 +12,7 @@ function getSerialNumber(callback) {
     callback("API Enterprise Browser não disponível");
   }
 }
+
 const Modal = ({ show, onClose, message }) => {
   if (!show) return null;
   return (
@@ -30,11 +31,9 @@ const Modal = ({ show, onClose, message }) => {
 export default function Menu() {
   const [modal, setModal] = useState({ show: false, message: "" });
   const [serial, setSerial] = useState("Carregando...");
-  const [imei, setImei] = useState("Carregando...");
 
   useEffect(() => {
     getSerialNumber(setSerial);
-    getImeiNumber(setImei);
   }, []);
 
   return (
@@ -44,7 +43,6 @@ export default function Menu() {
         message={modal.message}
         onClose={() => setModal({ show: false, message: "" })}
       />
-      
       <div className="Menu" style={{ backgroundColor: "#FFFFFF" }}>
         <img
           src="https://grupodma.com.br/assets/dma-logo.png"
@@ -60,6 +58,7 @@ export default function Menu() {
           <input type="number" placeholder="Matricula" />
           <input type="password" placeholder="Senha" />
           <button className="button">Entrar</button>
+          
         </div>
       </div>
     </>
