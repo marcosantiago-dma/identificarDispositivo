@@ -153,7 +153,8 @@ input[type="number"]::-webkit-outer-spin-button {
 /* Botão */
 
 .button {
-  margin: 42px auto;         
+  margin: 42px auto;
+  margin-top: -20px !important;         
   padding: 15px 30px;
   margin-bottom: -55px !important;
   text-align: center;
