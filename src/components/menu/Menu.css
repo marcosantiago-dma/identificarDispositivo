@@ -53,7 +53,8 @@ body,
 
 /* Menu */
 .Menu {
-    margin-top: 10px;
+    margin-top: 15px !important;
+    padding-top: 15px !important;
     width: 280px !important;
     height: 500px;
 
