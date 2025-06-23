@@ -56,7 +56,7 @@ export default function Menu() {
         message={modal.message}
         onClose={() => setModal({ show: false, message: "" })}
       />
-      <p className="by">Desenvolvido por Marco Tulio C Santiago</p>
+      
       <div className="Menu" style={{ backgroundColor: "#FFFFFF" }}>
         <img
           src="https://grupodma.com.br/assets/dma-logo.png"
@@ -74,7 +74,7 @@ export default function Menu() {
           <input type="number" placeholder="Matricula" />
           <input type="password" placeholder="Senha" />
           <button className="button">Entrar</button>
-          
+          <p className="by">Desenvolvido por Marco Tulio C Santiago</p>
         </div>
       </div>
     </>
