@@ -13,17 +13,6 @@ function getSerialNumber(callback) {
   }
 }
 
-// Função para obter o IMEI no Enterprise Browser
-function getImeiNumber(callback) {
-  if (window.EB && EB.Device && EB.Device.getImeiNumber) {
-    EB.Device.getImeiNumber(function (result) {
-      callback(result.imeiNumber || "Não disponível");
-    });
-  } else {
-    callback("API Enterprise Browser não disponível");
-  }
-}
-
 const Modal = ({ show, onClose, message }) => {
   if (!show) return null;
   return (
@@ -68,9 +57,6 @@ export default function Menu() {
           <h2>Login</h2>
           <p>
             <b>Serial do coletor:</b> {serial}
-          </p>
-          <p>
-            <b>IMEI do coletor:</b> {imei}
           </p>
           <input type="number" placeholder="Matricula" />
           <input type="password" placeholder="Senha" />
