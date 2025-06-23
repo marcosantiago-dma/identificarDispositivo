@@ -54,7 +54,7 @@ body,
 /* Menu */
 .Menu {
     width: 280px !important;
-    height: 500px;
+    height: 530px;
 
     position: absolute;
     top: 50%;
@@ -94,10 +94,9 @@ p {
     font-size: 15px;
 }
 
-h2 {
+h2{
     color: #063386;
-    padding-top: 25px;
-
+    margin-bottom: -25px;
 }
 
 h3,
@@ -151,6 +150,7 @@ input[type="number"]::-webkit-outer-spin-button {
 .button {
   margin: 42px auto;         
   padding: 15px 30px;
+  margin-bottom: -55px !important;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
