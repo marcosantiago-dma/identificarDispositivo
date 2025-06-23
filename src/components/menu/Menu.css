@@ -154,7 +154,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .button {
   margin: 20px auto !important; 
-  margin-top: 10px !important;
+  margin-top: 20px !important;
   padding: 15px 30px;
   text-align: center;
   text-transform: uppercase;
