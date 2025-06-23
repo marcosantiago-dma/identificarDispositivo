@@ -19,7 +19,7 @@
 </p>
 
 <p align="center">
-  <img alt="Demonstração do projeto" width="650px" src=".github/demo.png" />
+  <img alt="Demonstração do projeto" width="650px" src=".github/demo.jpg" />
 </p>
 
 ## :bookmark: Sobre
