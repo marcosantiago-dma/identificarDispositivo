@@ -94,15 +94,19 @@ p {
     font-size: 15px;
 }
 
-h2{
-    color: #063386;
-    margin-bottom: -25px;
+.by {
+    font-size: 8px;
+    margin-top: 75px;
 }
 
-h3,
+h2{
+    color: #063386;
+    margin-bottom: 25px;
+}
+
 h4 {
     color: #063386;
-    margin-bottom: -8px;
+    margin-top: 50px;
 }
 
 .footer {

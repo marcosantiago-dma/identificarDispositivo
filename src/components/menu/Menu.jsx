@@ -1,37 +1,27 @@
+/* global EB */
 import React, { useEffect, useState } from "react";
-import FingerprintJS from "@fingerprintjs/fingerprintjs";
 import "./Menu.css";
 
-async function getDeviceFingerprint() {
-  const fp = await FingerprintJS.load();
-  const result = await fp.get();
-  const hash = Array.from(result.visitorId).reduce((acc, char) => acc + char.charCodeAt(0), 0);
-  return (hash % 500) + 1;
+// Função para obter o número de série no Zebra Enterprise Browser
+function getSerialNumber(callback) {
+  if (window.EB && EB.Device && EB.Device.getSerialNumber) {
+    EB.Device.getSerialNumber(function (result) {
+      callback(result.serialNumber || "Não disponível");
+    });
+  } else {
+    callback("API Zebra não disponível");
+  }
 }
 
-// Função para tentar obter IP(s) privados via WebRTC
-function getLocalIPs(callback) {
-  const ips = new Set();
-  const pc = new RTCPeerConnection({ iceServers: [] });
-
-  pc.createDataChannel("");
-  pc.createOffer()
-    .then((offer) => pc.setLocalDescription(offer))
-    .catch(() => { /* falha ignorada */ });
-
-  pc.onicecandidate = (event) => {
-    if (!event.candidate) {
-      // Acabou de coletar todos os coletores
-      callback(Array.from(ips));
-      return;
-    }
-    // Aqui, cada "candidate" ICE pode conter um IP privado
-    const regex = /([0-9]{1,3}(\.[0-9]{1,3}){3})/;
-    const ipMatch = regex.exec(event.candidate.candidate);
-    if (ipMatch) {
-      ips.add(ipMatch[1]);
-    }
-  };
+// Função para obter o IMEI no Zebra Enterprise Browser
+function getImeiNumber(callback) {
+  if (window.EB && EB.Device && EB.Device.getImeiNumber) {
+    EB.Device.getImeiNumber(function (result) {
+      callback(result.imeiNumber || "Não disponível");
+    });
+  } else {
+    callback("API Zebra não disponível");
+  }
 }
 
 const Modal = ({ show, onClose, message }) => {
@@ -51,24 +41,12 @@ const Modal = ({ show, onClose, message }) => {
 
 export default function Menu() {
   const [modal, setModal] = useState({ show: false, message: "" });
-  const [deviceId, setDeviceId] = useState(null);
-  const [ipPublic, setIpPublic] = useState(null);
-  const [ipPrivates, setIpPrivates] = useState([]);
+  const [serial, setSerial] = useState("Carregando...");
+  const [imei, setImei] = useState("Carregando...");
 
   useEffect(() => {
-    getDeviceFingerprint().then(setDeviceId);
-
-    fetch("https://ipinfo.io/json?token=8760836c341ef2")
-      .then((res) => res.json())
-      .then((data) => setIpPublic(data.ip))
-      .catch((err) => console.error("Erro ao obter IP público:", err));
-
-    getLocalIPs((ips) => {
-      setIpPrivates(ips);
-    });
-
-    // (Seu código original de proteções e eventos pode ser inserido aqui...)
-
+    getSerialNumber(setSerial);
+    getImeiNumber(setImei);
   }, []);
 
   return (
@@ -85,21 +63,17 @@ export default function Menu() {
           alt="logo"
         />
         <div className="grid">
-          <h2>Identificar dispositivo</h2>
-          <h3>Login</h3>
+          <h2>Login</h2>
           <p>
-            <b>ID do dispositivo:</b> {deviceId}
+            <b>Serial do coletor:</b> {serial}
           </p>
           <p>
-            <b>IP público:</b> {ipPublic || "Carregando..."}
-          </p>
-          <p>
-            <b>IP(s) privado(s):</b>{" "}
-            {ipPrivates.length > 0 ? ipPrivates.join(", ") : "Não detectado"}
+            <b>IMEI do coletor:</b> {imei}
           </p>
           <input type="number" placeholder="Matricula" />
           <input type="password" placeholder="Senha" />
           <button className="button">Entrar</button>
+          <p className="by">Desenvolvido por Marco Tulio C Santiago</p>
         </div>
       </div>
     </>
