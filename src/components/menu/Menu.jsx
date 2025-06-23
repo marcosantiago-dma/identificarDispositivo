@@ -35,7 +35,7 @@ export default function Menu() {
     getDeviceFingerprint().then(setDeviceId);
 
     // IP + localização com ipinfo.io
-    fetch('https://ipinfo.io/json?token=SEU_TOKEN_AQUI') // substitua pelo seu token
+    fetch('https://ipinfo.io/json?token=8760836c341ef2') // substitua pelo seu token
       .then(res => res.json())
       .then(data => setIpInfo(data))
       .catch(err => console.error("Erro ao obter IP:", err));
@@ -135,7 +135,6 @@ export default function Menu() {
           {ipInfo && (
             <>
               <p><b>IP:</b> {ipInfo.ip}</p>
-              <p><b>Localização:</b> {ipInfo.city}, {ipInfo.region}, {ipInfo.country}</p>
             </>
           )}
           <input type="number" placeholder="Matricula" />
