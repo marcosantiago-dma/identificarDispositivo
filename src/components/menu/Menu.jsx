@@ -64,6 +64,7 @@ export default function Menu() {
           alt="logo"
         />
         <div className="grid">
+          <p className="by">Desenvolvido por Marco Tulio C Santiago</p>
           <h2>Login</h2>
           <p>
             <b>Serial do coletor:</b> {serial}
@@ -74,7 +75,6 @@ export default function Menu() {
           <input type="number" placeholder="Matricula" />
           <input type="password" placeholder="Senha" />
           <button className="button">Entrar</button>
-          <p className="by">Desenvolvido por Marco Tulio C Santiago</p>
         </div>
       </div>
     </>
