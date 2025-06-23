@@ -12,7 +12,6 @@ function getSerialNumber(callback) {
     callback("API Enterprise Browser não disponível");
   }
 }
-
 const Modal = ({ show, onClose, message }) => {
   if (!show) return null;
   return (
