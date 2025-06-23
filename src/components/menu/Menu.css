@@ -55,7 +55,7 @@ body,
 .Menu {
     
     width: 280px !important;
-    height: auto !important;
+    height: 480px !important;
 
     position: absolute;
     top: 50%;

@@ -2,25 +2,25 @@
 import React, { useEffect, useState } from "react";
 import "./Menu.css";
 
-// Função para obter o número de série no Zebra Enterprise Browser
+// Função para obter o número de série no Enterprise Browser
 function getSerialNumber(callback) {
   if (window.EB && EB.Device && EB.Device.getSerialNumber) {
     EB.Device.getSerialNumber(function (result) {
       callback(result.serialNumber || "Não disponível");
     });
   } else {
-    callback("API Zebra não disponível");
+    callback("API Enterprise Browser não disponível");
   }
 }
 
-// Função para obter o IMEI no Zebra Enterprise Browser
+// Função para obter o IMEI no Enterprise Browser
 function getImeiNumber(callback) {
   if (window.EB && EB.Device && EB.Device.getImeiNumber) {
     EB.Device.getImeiNumber(function (result) {
       callback(result.imeiNumber || "Não disponível");
     });
   } else {
-    callback("API Zebra não disponível");
+    callback("API Enterprise Browser não disponível");
   }
 }
 
