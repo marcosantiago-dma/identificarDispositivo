@@ -53,9 +53,8 @@ body,
 
 /* Menu */
 .Menu {
-    margin-top: 10px !important;
     width: 280px !important;
-    height: 450px !important;
+    height: 460px !important;
 
     position: absolute;
     top: 50%;
@@ -120,7 +119,7 @@ input {
     border: none;
     border-bottom: 2px solid #072d74;
     height: 35px;
-    margin-top: 5px;
+    margin-top: 5px !important;
     color: #063386;
     font-size: 15px;
 }
