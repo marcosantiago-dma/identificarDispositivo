@@ -1,0 +1,180 @@
+body,
+* {
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.react-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.react-modal-content {
+    background: #fff;
+    border-radius: 12px;
+    padding: 32px 24px;
+    min-width: 320px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    position: relative;
+}
+
+.react-modal-title {
+    color: #063386;
+    margin-bottom: 16px;
+}
+
+.react-modal-message {
+    color: #222;
+    font-size: 16px;
+    margin-bottom: 24px;
+}
+
+.react-modal-button {
+    background: #0257f5;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 28px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(2, 87, 245, 0.08);
+}
+
+/* Menu */
+.Menu {
+    width: 280px !important;
+    height: 500px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:
+        translate(-50%, -50%);
+
+    border-style: solid #0257f5;
+    border-radius: 10px;
+    box-shadow: 0 0 1.2em #072d74;
+
+
+    background-color: #FFFFFF !important;
+
+    margin-top: -20px;
+}
+
+.logo {
+    text-align: center;
+    margin: 0;
+    margin-top: -20px;
+}
+
+.imgLogoMenu {
+    padding-top: 28px;
+    width: 80%;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+p {
+    color: #063386;
+    font-size: 15px;
+}
+
+h2 {
+    color: #063386;
+    padding-top: 25px;
+
+}
+
+h3,
+h4 {
+    color: #063386;
+    margin-bottom: -8px;
+}
+
+.footer {
+    margin-top: 120px;
+}
+
+/* Estilo do Input */
+
+input {
+    border: none;
+    border-bottom: 2px solid #072d74;
+    height: 35px;
+    margin-top: 10px;
+    color: #063386;
+    font-size: 15px;
+}
+
+.input1 {
+    margin-top: 20px !important;
+    margin-bottom: 20px;
+}
+
+input:focus {
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #072d74;
+    box-shadow: none;
+}
+
+input::placeholder {
+    color: #063386;
+    opacity: 1;
+    /* Garante que a cor apareça em todos os navegadores */
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* Botão */
+
+.button {
+  margin: 42px auto;         
+  padding: 15px 30px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  display: block;
+  border: 0px;
+  font-weight: 700;
+  box-shadow: 0px 0px 14px -7px #0257f5;
+  background-image: linear-gradient(45deg, #0257f5 0%, #008cff  51%, #072d74  100%);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.button:active {
+  transform: scale(0.95);
+}
