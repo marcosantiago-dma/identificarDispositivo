@@ -7,6 +7,7 @@ function getSerialNumber(callback) {
   if (window.EB && EB.Device && EB.Device.getSerialNumber) {
     EB.Device.getSerialNumber(function (result) {
       callback(result.serialNumber || "Não disponível");
+      alert("Número de série: " + result.serialNumber);
     });
   } else {
     callback("API Enterprise Browser não disponível");
@@ -58,7 +59,7 @@ export default function Menu() {
           <input type="number" placeholder="Matricula" />
           <input type="password" placeholder="Senha" />
           <button className="button">Entrar</button>
-          
+
         </div>
       </div>
     </>
